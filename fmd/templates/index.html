@@ -7,6 +7,20 @@
         <link rel="stylesheet" href="{% static '/css/style.css' %}">
     </head>
     <body>
+        {% if user.is_anonymous %}
+            <ul>
+              <li><a class="active" href="index">Home</a></li>
+              <li style="float:right"><a href="login">Login</a></li>
+              <li style="float:right"><a href="register">Register</a></li>
+            </ul>
+          {% else %}
+              <ul>
+                <li><a class="active" href="index">Home</a></li>
+                <li style="float:right"><a href="logout">Logout</a></li>
+                <li style="float:right"><a href="profile">Profile</a></li>
+              </ul>
+          {% endif %}
+
         <form>
         Name on contract: <input id="firstName" value='{{user.first_name}}'>
         <input id="lastName" value='{{user.last_name}}'>
