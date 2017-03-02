@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.contrib.auth.models import User
 from rest_framework import viewsets
 from .models import Farm, FmdData
@@ -10,7 +9,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return render(request, 'index.html')
 
 
 class UsersViewSet(viewsets.ModelViewSet):
@@ -41,7 +40,7 @@ def register(request):
                                 password=user_form.cleaned_data['password']
                                     )
             login(request, user)
-            return HttpResponseRedirect("/profile/")
+            return HttpResponseRedirect("/index/")
     else:
         user_form = RegistrationForm()
     return render(request,
