@@ -27,7 +27,6 @@ $.ajaxSetup({
     }
 });
 
-$('#submitForm').click(submitForm)
 
 function submitForm(){
     user = $("#userId").val()
@@ -46,3 +45,8 @@ function submitForm(){
         location = location
     })
 }
+
+
+ $('#submitForm').click(submitForm)
+ $('#printForm').click(printForm)
+ $('#downloadPDF').click(downloadPDF)

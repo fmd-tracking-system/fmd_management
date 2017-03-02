@@ -12,11 +12,11 @@ class FmdData(models.Model):
     user = models.ForeignKey(User)
     name = models.CharField(max_length=300)
     fmd = models.ForeignKey(Farm)
-    farm_condition = models.TextField(blank=True, null=True)
-    bgp_requirements = models.TextField(blank=True, null=True)
-    corrective_action = models.TextField(blank=True, null=True)
+    farm_condition = models.TextField()
+    bgp_requirements = models.TextField()
+    corrective_action = models.TextField()
 
-    observed = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    observed = models.DateTimeField(auto_now_add=True)
 
     hand_delivered = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
