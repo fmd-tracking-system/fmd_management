@@ -21,3 +21,8 @@ class FmdData(models.Model):
     hand_delivered = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     corrected = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+
+class FmdDataImage(models.Model):
+    FmdData = models.ForeignKey(FmdData, related_name='images')
+    image = models.ImageField()
